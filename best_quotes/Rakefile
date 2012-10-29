@@ -1,0 +1,4 @@
+task default: :serv
+task :serv do
+  sh 'rackup -p 3001'
+end
