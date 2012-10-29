@@ -6,6 +6,8 @@ class Object
     require Rulers.to_underscore c.to_s
     klass = Object.const_get c
 
+    raise "Could not find #{c}" if klass.nil?
+
     klass
   end
 end
