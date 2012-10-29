@@ -1,0 +1,28 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Application	best_quotes/config/application.rb	/^  class Application < Rulers::Application$/;"	c	class:BestQuotes
+Application	lib/rulers.rb	/^  class Application$/;"	c	class:Rulers
+Application	lib/rulers/routing.rb	/^  class Application$/;"	c	class:Rulers
+Array	lib/rulers/array.rb	/^class Array$/;"	c
+BestQuotes	best_quotes/config/application.rb	/^module BestQuotes$/;"	m
+Controller	lib/rulers/controller.rb	/^  class Controller$/;"	c	class:Rulers
+Object	lib/rulers/dependencies.rb	/^class Object$/;"	c
+QuotesController	best_quotes/app/controllers/quotes_controller.rb	/^class QuotesController < Rulers::Controller$/;"	c
+Rulers	lib/rulers.rb	/^module Rulers$/;"	m
+Rulers	lib/rulers/controller.rb	/^module Rulers$/;"	m
+Rulers	lib/rulers/routing.rb	/^module Rulers$/;"	m
+Rulers	lib/rulers/util.rb	/^module Rulers$/;"	m
+Rulers	lib/rulers/version.rb	/^module Rulers$/;"	m
+a_quote	best_quotes/app/controllers/quotes_controller.rb	/^  def a_quote$/;"	f	class:QuotesController
+call	lib/rulers.rb	/^    def call env$/;"	f	class:Rulers.Application
+const_missing	lib/rulers/dependencies.rb	/^  def self.const_missing c$/;"	F	class:Object
+controller_name	lib/rulers/controller.rb	/^    def controller_name$/;"	f	class:Rulers.Controller
+get_controller_and_action	lib/rulers/routing.rb	/^    def get_controller_and_action env$/;"	f	class:Rulers.Application
+initialize	lib/rulers/controller.rb	/^    def initialize env$/;"	f	class:Rulers.Controller
+render	lib/rulers/controller.rb	/^    def render view_name, locals = {}$/;"	f	class:Rulers.Controller
+sum	lib/rulers/array.rb	/^  def sum start = 0$/;"	f	class:Array
+to_underscore	lib/rulers/util.rb	/^    def to_underscore string$/;"	f	class:Rulers
