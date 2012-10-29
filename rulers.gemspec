@@ -13,10 +13,11 @@ Gem::Specification.new do |gem|
   gem.homepage      = ""
   gem.license       = "MIT"
 
-  gem.files         = `git ls-files`.split($/)
+  gem.files         = `git ls-files`.split($/).grep /^(?!best_quotes)/
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_runtime_dependency 'rack'
+  gem.add_dependency 'rack'
+  gem.add_development_dependency 'rake'
 end
