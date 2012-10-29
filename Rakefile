@@ -3,6 +3,12 @@ require 'bundler/gem_tasks'
 task default: :try
 
 task :try do
-  sh ',gem .' # → https://github.com/sharpsaw/ruby-dots/blob/master/bin/%2Cgem
-  sh 'cd best_quotes && rake'
+  sh 'cd best_quotes && bundle exec rake'
+end
+
+task :gem do
+  sh 'git add .'
+  sh 'rm *.gem'
+  sh 'gem build *.gemspec'
+  sh 'gem install *.gem'
 end
