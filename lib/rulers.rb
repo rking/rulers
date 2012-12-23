@@ -1,8 +1,11 @@
-require 'rulers/version'
-require 'rulers/routing'
-require 'rulers/util'
-require 'rulers/dependencies'
-require 'rulers/controller'
+%w(
+  version
+  routing
+  util
+  dependencies
+  controller
+  file_model
+).each do |part| require 'rulers/'+part end
 
 module Rulers
   class Application
