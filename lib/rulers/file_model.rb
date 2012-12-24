@@ -1,17 +1,29 @@
 module Rulers
   module Model
     class FileModel
-      def initialize id
-        @id = id.to_i
-        @path = "db/quotes/#{@id}.yml"
-        @hash = YAML.load_file @path
+      def initialize(hash)
+        @hash = hash
       end
 
-      def [] key; @hash[key.to_s] end
-      def []= key, val; @hash[key] = val end
+      def [](key)
+        @hash[key.to_s]
+      end
 
-      def self.find id
-        FileModel.new id
+      def []=(key, val)
+        @hash[key] = val
+      end
+
+      def self.find(id)
+        hash = MultiJson.decode(read_quote(id))
+        FileModel.new(hash)
+      end
+
+      private
+      def self.read_quote id
+        id = id.to_i
+        path = "db/quotes/#{id}.json"
+        return unless File.exists?(path)
+        File.read(path)
       end
     end
   end
