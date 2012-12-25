@@ -16,7 +16,7 @@ module Rulers
       klass, act = get_controller_and_action env
       raise "Oops: #{env}" unless klass
       controller = klass.new env
-      [200, {'Content-Type' => 'text/html'}, [controller.send(act)]]
+      [200, {'Content-Type' => 'text/html; charset=UTF-8'}, [controller.send(act)]]
     end
   end
 end
