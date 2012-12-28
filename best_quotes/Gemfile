@@ -1,3 +1,4 @@
 source :rubygems
 gem 'rulers', path: '..'
+gem 'pry-de'
 gem 'rake'
