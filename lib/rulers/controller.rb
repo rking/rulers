@@ -10,6 +10,9 @@ module Rulers
 
     attr_reader :env
 
+    def request; @request ||= Rack::Request.new env end
+    def params; request.params end
+
     def render view_name, locals = {}
       filename = "app/views/#{controller_name}/#{view_name}.html.erb"
       template = File.read filename

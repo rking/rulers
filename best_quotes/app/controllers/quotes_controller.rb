@@ -2,9 +2,10 @@ class QuotesController < Rulers::Controller
   def index
     render :index, quotes: FileModel.all
   end
-  def quote_1
-    q1 = FileModel.find 1
-    render :quote, obj: q1
+
+  def show
+    quote = FileModel.find params['id']
+    render :quote, obj: quote
   end
 
   def a_quote
