@@ -3,11 +3,11 @@ module Rulers
     class FileModel
       def initialize id
         @id = id.to_i
-        @path = "db/quotes/#{@id}.yml"
+        @path = self.class._path_pattern % id
         @hash = YAML.load_file @path
       end
 
-      def [] key; @hash[key.to_s] end
+      def [] key; @hash[key.to_sym] end
       def []= key, val; @hash[key] = val end
 
       class << self
@@ -16,10 +16,27 @@ module Rulers
         end
 
         def all
-          Dir['db/quotes/*.yml'].map do |yaml|
-             FileModel.new File.basename yaml, '.yml'
+          all_ids.map{|e| FileModel.new e}
+        end
+
+        def all_ids
+          Dir[_path_pattern % '*'].map do |yaml|
+            File.basename(yaml, '.yml').to_i
           end
         end
+
+        def create attrs
+          [:submitter, :quote, :attribution].each do |key|
+            attrs[key] ||= ''
+          end
+          id = 1 + all_ids.max
+          path = _path_pattern % id
+          File.write path, YAML.dump(attrs)
+
+          new id
+        end
+
+        def _path_pattern; 'db/quotes/%s.yml' end
       end
     end
   end
