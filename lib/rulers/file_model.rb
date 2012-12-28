@@ -14,6 +14,12 @@ module Rulers
         def find id
           FileModel.new id
         end
+
+        def all
+          Dir['db/quotes/*.yml'].map do |yaml|
+             FileModel.new File.basename yaml, '.yml'
+          end
+        end
       end
     end
   end
