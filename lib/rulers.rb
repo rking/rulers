@@ -19,7 +19,7 @@ module Rulers
       text = controller.send act
       if controller.get_response
         status, headers, resp = controller.get_response.to_a
-        [status, utf8ify({}), [resp.body].flatten]
+        [status, utf8ify(headers), [resp.body].flatten]
       else
         [200, utf8ify({}), [text]]
       end
