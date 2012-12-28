@@ -12,3 +12,7 @@ task :gem do
   sh 'gem build *.gemspec'
   sh 'gem install *.gem'
 end
+
+task :book do
+  sh 'evince ~/doc/RebuildingRails20121031.pdf &'
+end
