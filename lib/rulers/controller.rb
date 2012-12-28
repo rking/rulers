@@ -13,6 +13,13 @@ module Rulers
     def request; @request ||= Rack::Request.new env end
     def params; request.params end
 
+    def response text, status = 200, headers = {}
+      fail 'Already responded!' if @response
+      @response = Rack::Response.new [text].flatten, status, headers
+    end
+    def render_response *args; response render *args end
+    def get_response; @response end # "Only for Rulers"
+
     def render view_name, locals = {}
       filename = "app/views/#{controller_name}/#{view_name}.html.erb"
       template = File.read filename
