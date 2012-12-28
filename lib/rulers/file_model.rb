@@ -10,8 +10,10 @@ module Rulers
       def [] key; @hash[key.to_s] end
       def []= key, val; @hash[key] = val end
 
-      def self.find id
-        FileModel.new id
+      class << self
+        def find id
+          FileModel.new id
+        end
       end
     end
   end
